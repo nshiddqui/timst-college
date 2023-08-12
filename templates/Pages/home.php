@@ -179,7 +179,7 @@ $this->assign('title', 'Home');
                 </div>
                 <div class="col-sm-12 col-md-6 mt-0 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
                     <div class="video-popup">
-                        <a href="https://www.youtube.com/watch?v=AF5mTJ_DHx4" data-lightbox-gallery="youtube-video" title="Video" style="position: relative;">
+                        <a href="https://www.youtube.com/watch?v=EUGfA6r02TA" data-lightbox-gallery="youtube-video" title="Video" style="position: relative;">
                             <i class="fa fa-play-circle-o" aria-hidden="true" style="position: absolute; top: 38%; left: 50%; font-size: 80px; color: red;"></i>
                             <img alt="" src="/img/about/5.jpg" class="img-responsive img-fullwidth mt-10 ml-30 ml-xs-0 ml-sm-0">
                         </a>
