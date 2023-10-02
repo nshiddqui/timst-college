@@ -18,7 +18,7 @@ class UniversitiesController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        if ($this->Authentication->getIdentityData('role') == 1) {
+        if ($this->Authentication->getIdentityData('role') != 1) {
             throw new UnauthorizedException('Not Authorized');
         }
     }
