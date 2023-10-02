@@ -124,6 +124,7 @@
                                 <li><a href="/gallery">Gallery</a></li>
                                 <li><a href="/cource">Cources</a></li>
                                 <li><a href="https://play.google.com/store/apps/details?id=co.diy.qzmwx" target="_BLANK">Google Play Store</a></li>
+                                <li><a href="/users/login">Portal Dashboard</a></li>
                             </ul>
                         </nav>
                     </div>
