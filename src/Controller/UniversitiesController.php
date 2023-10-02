@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Http\Exception\UnauthorizedException;
+
 /**
  * Universities Controller
  *
@@ -12,6 +14,15 @@ namespace App\Controller;
  */
 class UniversitiesController extends AppController
 {
+
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        if ($this->Authentication->getIdentityData('role') == 1) {
+            throw new UnauthorizedException('Not Authorized');
+        }
+    }
+
     /**
      * Index method
      *

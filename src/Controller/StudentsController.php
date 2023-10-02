@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Http\Exception\UnauthorizedException;
+
 /**
  * Students Controller
  *
@@ -12,6 +14,15 @@ namespace App\Controller;
  */
 class StudentsController extends AppController
 {
+
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        if (!in_array($this->Authentication->getIdentityData('role'), [1, 2])) {
+            throw new UnauthorizedException('Not Authorized');
+        }
+    }
+
     /**
      * Index method
      *
@@ -19,6 +30,10 @@ class StudentsController extends AppController
      */
     public function index()
     {
+        if ($this->Authentication->getIdentityData('role') == 2) {
+            $query = $this->DataTables->getQuery('Students');
+            $query->where(['Students.university_id' => $this->Authentication->getIdentityData('university.id')]);
+        }
     }
 
     /**
@@ -47,7 +62,10 @@ class StudentsController extends AppController
         $student = $this->Students->newEmptyEntity();
         if ($this->request->is('post')) {
             $data = $this->request->getData();
-            $data['user']['role'] = 2;
+            if ($this->Authentication->getIdentityData('role') == 2) {
+                $data['university_id'] = $this->Authentication->getIdentityData('university.id');
+            }
+            $data['user']['role'] = 3;
             $postImage = $this->request->getData('image');
             $name = $postImage->getClientFilename();
             $type = $postImage->getClientMediaType();
@@ -73,7 +91,11 @@ class StudentsController extends AppController
         $users = $this->Students->Users->find('list', ['limit' => 200])->all();
         $states = $this->Students->States->find('list', ['limit' => 200])->all();
         $genders = $this->Students->Genders->find('list', ['limit' => 200])->all();
-        $universities = $this->Students->Universities->find('list', ['limit' => 200])->all();
+        if ($this->Authentication->getIdentityData('role') == 1) {
+            $universities = $this->Students->Universities->find('list', ['limit' => 200])->all();
+        } else {
+            $universities = [];
+        }
         $cources = $this->Students->Cources->find('list', ['limit' => 200])->all();
         $categories = $this->Students->Categories->find('list', ['limit' => 200])->all();
         $this->set(compact('student', 'users', 'states', 'genders', 'universities', 'cources', 'categories'));
@@ -93,10 +115,13 @@ class StudentsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->getData();
+            if ($this->Authentication->getIdentityData('role') == 2) {
+                $data['university_id'] = $this->Authentication->getIdentityData('university.id');
+            }
             if (empty($data['user']['password'])) {
                 unset($data['user']['password']);
             }
-            $data['user']['role'] = 2;
+            $data['user']['role'] = 3;
             $postImage = $this->request->getData('image');
             $name = $postImage->getClientFilename();
             $type = $postImage->getClientMediaType();
@@ -122,7 +147,11 @@ class StudentsController extends AppController
         $users = $this->Students->Users->find('list', ['limit' => 200])->all();
         $states = $this->Students->States->find('list', ['limit' => 200])->all();
         $genders = $this->Students->Genders->find('list', ['limit' => 200])->all();
-        $universities = $this->Students->Universities->find('list', ['limit' => 200])->all();
+        if ($this->Authentication->getIdentityData('role') == 1) {
+            $universities = $this->Students->Universities->find('list', ['limit' => 200])->all();
+        } else {
+            $universities = [];
+        }
         $cources = $this->Students->Cources->find('list', ['limit' => 200])->all();
         $categories = $this->Students->Categories->find('list', ['limit' => 200])->all();
         $this->set(compact('student', 'users', 'states', 'genders', 'universities', 'cources', 'categories'));

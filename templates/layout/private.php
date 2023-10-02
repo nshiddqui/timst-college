@@ -90,18 +90,19 @@
                         <li class="has-submenu">
                             <a href="/dashboard"><i class="dripicons-device-desktop"></i>Dashboard</a>
                         </li>
-
-                        <li class="has-submenu">
-                            <a href="/students"><i class="dripicons-user"></i>Students</a>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="/cources"><i class="fa fa-book"></i>Cources</a>
-                        </li>
-
-                        <li class="has-submenu">
-                            <a href="/universities"><i class="dripicons-to-do"></i>Universities</a>
-                        </li>
+                        <?php if ($this->Identity->is(1, 'role') || $this->Identity->is(2, 'role')) { ?>
+                            <li class="has-submenu">
+                                <a href="/students"><i class="dripicons-user"></i>Students</a>
+                            </li>
+                            <?php if ($this->Identity->is(1, 'role')) { ?>
+                                <li class="has-submenu">
+                                    <a href="/cources"><i class="fa fa-book"></i>Cources</a>
+                                </li>
+                                <li class="has-submenu">
+                                    <a href="/universities"><i class="dripicons-to-do"></i>Universities</a>
+                                </li>
+                            <?php } ?>
+                        <?php } ?>
 
                     </ul>
                     <!-- End navigation menu -->

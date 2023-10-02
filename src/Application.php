@@ -157,7 +157,12 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             'fields' => [
                 'username' => 'username',
                 'password' => 'password',
-            ]
+            ],
+            'resolver' => [
+                'className' => 'Authentication.Orm',
+                'userModel' => 'Users',
+                'finder' => 'auth'
+            ],
         ]);
 
         // Load the authenticators, you want session first

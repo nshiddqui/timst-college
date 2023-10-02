@@ -46,6 +46,13 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->hasOne('Students', [
+            'foreignKey' => 'user_id',
+        ]);
+        $this->hasOne('Universities', [
+            'foreignKey' => 'user_id',
+        ]);
+
         $this->addBehavior('PreserveNull');
     }
 
@@ -98,5 +105,14 @@ class UsersTable extends Table
         $rules->add($rules->isUnique(['email'], ['allowMultipleNulls' => true]), ['errorField' => 'email']);
 
         return $rules;
+    }
+
+    public function findAuth(\Cake\ORM\Query $query, array $options)
+    {
+        $query
+            ->contain(['Students' => ['Universities'], 'Universities'])
+            ->where(['Users.status' => 1]);
+
+        return $query;
     }
 }

@@ -30,7 +30,7 @@ class PreserveNullBehavior extends Behavior
     {
         $associations = [];
         foreach ($table->associations() as $association) { /* @var $association \Cake\ORM\Association */
-            $associations[$association->property()] = $association->name();
+            $associations[$association->getProperty()] = $association->getName();
         }
 
         foreach ($data as $key => $value) {

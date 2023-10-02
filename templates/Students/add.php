@@ -12,7 +12,7 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                            <?= $this->Form->hidden('user.id') ?>
+                                <?= $this->Form->hidden('user.id') ?>
                                 <?= $this->Form->control('user.username', ['class' => 'form-control']) ?>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -47,9 +47,11 @@
                     <div class="col-md-4 mb-3">
                         <?= $this->Form->control('gender_id', ['class' => 'form-control', 'options' => $genders]) ?>
                     </div>
-                    <div class="col-md-4 mb-3">
-                        <?= $this->Form->control('university_id', ['class' => 'form-control', 'options' => $universities]) ?>
-                    </div>
+                    <?php if ($this->Identity->is(1, 'role')) { ?>
+                        <div class="col-md-4 mb-3">
+                            <?= $this->Form->control('university_id', ['class' => 'form-control', 'options' => $universities]) ?>
+                        </div>
+                    <?php } ?>
                     <div class="col-md-4 mb-3">
                         <?= $this->Form->control('cource_id', ['class' => 'form-control', 'options' => $cources]) ?>
                     </div>

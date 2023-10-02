@@ -37,6 +37,8 @@ class User extends Entity
         'status' => true,
         'created' => true,
         'modified' => true,
+        'universities' => true,
+        'students' => true,
     ];
 
     /**

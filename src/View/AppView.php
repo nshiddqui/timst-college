@@ -47,5 +47,6 @@ class AppView extends View
             'templates' => 'app_form',
         ]);
         $this->loadHelper('DataTables.DataTables');
+        $this->loadHelper('Authentication.Identity');
     }
 }
