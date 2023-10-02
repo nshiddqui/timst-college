@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'cakephp/app',
-        'pretty_version' => '4.4.2',
-        'version' => '4.4.2.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'd59de3baee2fd758ad9414ad874b5da8b857e29a',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,11 +20,20 @@
             'dev_requirement' => true,
         ),
         'cakephp/app' => array(
-            'pretty_version' => '4.4.2',
-            'version' => '4.4.2.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'd59de3baee2fd758ad9414ad874b5da8b857e29a',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'cakephp/authentication' => array(
+            'pretty_version' => '2.10.1',
+            'version' => '2.10.1.0',
+            'reference' => '643e17bcbbe2c5a01a5aaaa10d56df1a609ca6ab',
+            'type' => 'cakephp-plugin',
+            'install_path' => __DIR__ . '/../cakephp/authentication',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -352,6 +361,24 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'matthiasmullie/minify' => array(
+            'pretty_version' => '1.3.71',
+            'version' => '1.3.71.0',
+            'reference' => 'ae42a47d7fecc1fbb7277b2f2d84c37a33edc3b1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../matthiasmullie/minify',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'matthiasmullie/path-converter' => array(
+            'pretty_version' => '1.1.3',
+            'version' => '1.1.3.0',
+            'reference' => 'e7d13b2c7e2f2268e1424aaed02085518afa02d9',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../matthiasmullie/path-converter',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'mobiledetect/mobiledetectlib' => array(
             'pretty_version' => '2.8.41',
             'version' => '2.8.41.0',
@@ -478,8 +505,8 @@
         'psr/container-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '^1.0',
-                1 => '^1.0 || ^2.0',
+                0 => '^1.0 || ^2.0',
+                1 => '^1.0',
             ),
         ),
         'psr/http-client' => array(
@@ -955,7 +982,18 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../twig/twig',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
+        ),
+        'wsssoftware/cakephp-datatables' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '32bd6c82fae8cef420b629f975cfcb2c63ca8023',
+            'type' => 'cakephp-plugin',
+            'install_path' => __DIR__ . '/../wsssoftware/cakephp-datatables',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
         ),
     ),
 );

@@ -53,6 +53,77 @@
             "install-path": "../brick/varexporter"
         },
         {
+            "name": "cakephp/authentication",
+            "version": "2.10.1",
+            "version_normalized": "2.10.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cakephp/authentication.git",
+                "reference": "643e17bcbbe2c5a01a5aaaa10d56df1a609ca6ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cakephp/authentication/zipball/643e17bcbbe2c5a01a5aaaa10d56df1a609ca6ab",
+                "reference": "643e17bcbbe2c5a01a5aaaa10d56df1a609ca6ab",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/http": "^4.4",
+                "laminas/laminas-diactoros": "^2.2.2",
+                "psr/http-client": "^1.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0",
+                "psr/http-server-middleware": "^1.0"
+            },
+            "require-dev": {
+                "cakephp/cakephp": "^4.4",
+                "cakephp/cakephp-codesniffer": "^4.0",
+                "firebase/php-jwt": "^6.2",
+                "phpunit/phpunit": "^8.5 || ^9.3"
+            },
+            "suggest": {
+                "cakephp/cakephp": "Install full core to use \"CookieAuthenticator\".",
+                "cakephp/orm": "To use \"OrmResolver\" (Not needed separately if using full CakePHP framework).",
+                "cakephp/utility": "Provides CakePHP security methods. Required for the JWT adapter and Legacy password hasher.",
+                "ext-ldap": "Make sure this php extension is installed and enabled on your system if you want to use the built-in LDAP adapter for \"LdapIdentifier\".",
+                "firebase/php-jwt": "If you want to use the JWT adapter add this dependency"
+            },
+            "time": "2023-03-17T16:13:23+00:00",
+            "type": "cakephp-plugin",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Authentication\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CakePHP Community",
+                    "homepage": "https://github.com/cakephp/authentication/graphs/contributors"
+                }
+            ],
+            "description": "Authentication plugin for CakePHP",
+            "homepage": "https://cakephp.org",
+            "keywords": [
+                "Authentication",
+                "auth",
+                "cakephp",
+                "middleware"
+            ],
+            "support": {
+                "docs": "https://book.cakephp.org/authentication/2/en/",
+                "forum": "https://stackoverflow.com/tags/cakephp",
+                "irc": "irc://irc.freenode.org/cakephp",
+                "issues": "https://github.com/cakephp/authentication/issues",
+                "source": "https://github.com/cakephp/authentication"
+            },
+            "install-path": "../cakephp/authentication"
+        },
+        {
             "name": "cakephp/bake",
             "version": "2.9.3",
             "version_normalized": "2.9.3.0",
@@ -1976,6 +2047,136 @@
                 "source": "https://github.com/m1/Env/tree/2.2.0"
             },
             "install-path": "../m1/env"
+        },
+        {
+            "name": "matthiasmullie/minify",
+            "version": "1.3.71",
+            "version_normalized": "1.3.71.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matthiasmullie/minify.git",
+                "reference": "ae42a47d7fecc1fbb7277b2f2d84c37a33edc3b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matthiasmullie/minify/zipball/ae42a47d7fecc1fbb7277b2f2d84c37a33edc3b1",
+                "reference": "ae42a47d7fecc1fbb7277b2f2d84c37a33edc3b1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "matthiasmullie/path-converter": "~1.1",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": ">=2.0",
+                "matthiasmullie/scrapbook": ">=1.3",
+                "phpunit/phpunit": ">=4.8",
+                "squizlabs/php_codesniffer": ">=3.0"
+            },
+            "suggest": {
+                "psr/cache-implementation": "Cache implementation to use with Minify::cache"
+            },
+            "time": "2023-04-25T20:33:03+00:00",
+            "bin": [
+                "bin/minifycss",
+                "bin/minifyjs"
+            ],
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MatthiasMullie\\Minify\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Mullie",
+                    "email": "minify@mullie.eu",
+                    "homepage": "https://www.mullie.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CSS & JavaScript minifier, in PHP. Removes whitespace, strips comments, combines files (incl. @import statements and small assets in CSS files), and optimizes/shortens a few common programming patterns.",
+            "homepage": "https://github.com/matthiasmullie/minify",
+            "keywords": [
+                "JS",
+                "css",
+                "javascript",
+                "minifier",
+                "minify"
+            ],
+            "support": {
+                "issues": "https://github.com/matthiasmullie/minify/issues",
+                "source": "https://github.com/matthiasmullie/minify/tree/1.3.71"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/matthiasmullie",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../matthiasmullie/minify"
+        },
+        {
+            "name": "matthiasmullie/path-converter",
+            "version": "1.1.3",
+            "version_normalized": "1.1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matthiasmullie/path-converter.git",
+                "reference": "e7d13b2c7e2f2268e1424aaed02085518afa02d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matthiasmullie/path-converter/zipball/e7d13b2c7e2f2268e1424aaed02085518afa02d9",
+                "reference": "e7d13b2c7e2f2268e1424aaed02085518afa02d9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "time": "2019-02-05T23:41:09+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MatthiasMullie\\PathConverter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Mullie",
+                    "email": "pathconverter@mullie.eu",
+                    "homepage": "http://www.mullie.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Relative path converter",
+            "homepage": "http://github.com/matthiasmullie/path-converter",
+            "keywords": [
+                "converter",
+                "path",
+                "paths",
+                "relative"
+            ],
+            "support": {
+                "issues": "https://github.com/matthiasmullie/path-converter/issues",
+                "source": "https://github.com/matthiasmullie/path-converter/tree/1.1.3"
+            },
+            "install-path": "../matthiasmullie/path-converter"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -6102,6 +6303,73 @@
                 }
             ],
             "install-path": "../twig/twig"
+        },
+        {
+            "name": "wsssoftware/cakephp-datatables",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wsssoftware/cakephp-datatables.git",
+                "reference": "32bd6c82fae8cef420b629f975cfcb2c63ca8023"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wsssoftware/cakephp-datatables/zipball/32bd6c82fae8cef420b629f975cfcb2c63ca8023",
+                "reference": "32bd6c82fae8cef420b629f975cfcb2c63ca8023",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "^4.0.6",
+                "ext-fileinfo": "*",
+                "ext-intl": "*",
+                "ext-json": "*",
+                "matthiasmullie/minify": "^1.3.50",
+                "php": ">=7.2",
+                "twig/twig": "^3.0"
+            },
+            "require-dev": {
+                "cakephp/bake": "^2.0.3",
+                "fig-r/psr2r-sniffer": "dev-master",
+                "phpunit/phpunit": "^8.0"
+            },
+            "time": "2022-06-30T11:32:24+00:00",
+            "default-branch": true,
+            "type": "cakephp-plugin",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "DataTables\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "WSS Software",
+                    "homepage": "https://wsssoftware.com.br",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Allan Carvalho",
+                    "homepage": "https://wsssoftware.com.br",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/allanmcarvalho/cakephp-datatables/graphs/contributors",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "DataTables plugin for CakePHP 4.x",
+            "homepage": "https://github.com/allanmcarvalho/cakephp-datatables",
+            "support": {
+                "issues": "https://github.com/wsssoftware/cakephp-datatables/issues",
+                "source": "https://github.com/allanmcarvalho/cakephp-datatables"
+            },
+            "install-path": "../wsssoftware/cakephp-datatables"
         }
     ],
     "dev": true,
@@ -6164,7 +6432,6 @@
         "symfony/polyfill-php81",
         "symfony/process",
         "theseer/tokenizer",
-        "twig/markdown-extra",
-        "twig/twig"
+        "twig/markdown-extra"
     ]
 }
