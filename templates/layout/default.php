@@ -35,9 +35,9 @@
     <?= $this->Html->css('style') ?>
 
     <!-- Revolution Slider 5.x CSS settings -->
-    <?= $this->Html->css('revolution-slider/css/settings') ?>
-    <?= $this->Html->css('revolution-slider/css/layers') ?>
-    <?= $this->Html->css('revolution-slider/css/navigation') ?>
+    <!--<?= $this->Html->css('revolution-slider/css/settings') ?>-->
+    <!--<?= $this->Html->css('revolution-slider/css/layers') ?>-->
+    <!--<?= $this->Html->css('revolution-slider/css/navigation') ?>-->
 
     <!-- CSS | Theme Color -->
     <?= $this->Html->css('colors/theme-skin-color-set-1') ?>
@@ -123,6 +123,7 @@
                                 <li><a href="/about-us">About Us</a></li>
                                 <li><a href="/gallery">Gallery</a></li>
                                 <li><a href="/cource">Cources</a></li>
+                                <li><a href="https://play.google.com/store/apps/details?id=co.diy.qzmwx" target="_BLANK">Google Play Store</a></li>
                             </ul>
                         </nav>
                     </div>
