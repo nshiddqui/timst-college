@@ -73,6 +73,8 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
 
         // Load more plugins here
         $this->addPlugin('DataTables');
+        $this->addPlugin('Proffer');
+        $this->addPlugin('Josegonzalez/Upload');
     }
 
     /**

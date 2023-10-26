@@ -100,6 +100,6 @@
 function ($) {
     "use strict";
     $.MainApp.init();
-    $('select').select2();
+    $('select:not(.no-select2)').select2();
 }(window.jQuery);
 

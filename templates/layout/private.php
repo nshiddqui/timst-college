@@ -90,18 +90,33 @@
                         <li class="has-submenu">
                             <a href="/dashboard"><i class="dripicons-device-desktop"></i>Dashboard</a>
                         </li>
-                        <?php if ($this->Identity->is(1, 'role') || $this->Identity->is(2, 'role')) { ?>
+                        <?php if ($this->Identity->is(2, 'role')) { ?>
                             <li class="has-submenu">
                                 <a href="/students"><i class="dripicons-user"></i>Students</a>
                             </li>
-                            <?php if ($this->Identity->is(1, 'role')) { ?>
-                                <li class="has-submenu">
-                                    <a href="/cources"><i class="fa fa-book"></i>Cources</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="/universities"><i class="dripicons-to-do"></i>Universities</a>
-                                </li>
-                            <?php } ?>
+                        <?php } ?>
+                        <?php if ($this->Identity->is(1, 'role')) { ?>
+                            <li class="has-submenu">
+                                <a href="/cource-types"><i class="fa fa-book"></i>Cource Types</a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="/faculties"><i class="fa fa-book"></i>Fuculties</a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="/id-proof-types"><i class="fa fa-book"></i>ID Proof Types</a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="/mode-of-studies"><i class="fa fa-book"></i>Mode of Studies</a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="/streams"><i class="fa fa-book"></i>Streams</a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="/cources"><i class="fa fa-book"></i>Cources</a>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="/universities"><i class="dripicons-to-do"></i>Universities</a>
+                            </li>
                         <?php } ?>
 
                     </ul>
@@ -122,7 +137,9 @@
                         <h4 class="page-title">TIMST</h4>
                         <div class="btn-group mt-2">
                             <ol class="breadcrumb hide-phone p-0 m-0">
-                                <li class="breadcrumb-item active"><?= $this->fetch('title') ?></li>
+                                <li class="breadcrumb-item active">
+                                    <?= $this->fetch('title') ?>
+                                </li>
                             </ol>
                         </div>
 

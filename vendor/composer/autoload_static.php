@@ -35,6 +35,7 @@ class ComposerStaticInit73efae232c7612431965f33d3c603310
         '2cb76c05856dfb60ada40ef54138d49a' => __DIR__ . '/..' . '/cakephp/cakephp/src/Routing/functions.php',
         'b1fc73705e1bec51cd2b20a32cf1c60a' => __DIR__ . '/..' . '/cakephp/cakephp/src/Utility/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -82,6 +83,7 @@ class ComposerStaticInit73efae232c7612431965f33d3c603310
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
             'Psr\\Container\\' => 14,
+            'Proffer\\' => 8,
             'PhpParser\\' => 10,
             'Phinx\\' => 6,
             'PHPStan\\PhpDocParser\\' => 21,
@@ -96,6 +98,9 @@ class ComposerStaticInit73efae232c7612431965f33d3c603310
         ),
         'L' => 
         array (
+            'League\\MimeTypeDetection\\' => 25,
+            'League\\Flysystem\\Local\\' => 23,
+            'League\\Flysystem\\' => 17,
             'League\\Container\\' => 17,
             'Laminas\\HttpHandlerRunner\\' => 26,
             'Laminas\\Diactoros\\' => 18,
@@ -103,7 +108,17 @@ class ComposerStaticInit73efae232c7612431965f33d3c603310
         'J' => 
         array (
             'JsonSchema\\' => 11,
+            'Josegonzalez\\Upload\\Test\\Fixture\\' => 33,
+            'Josegonzalez\\Upload\\' => 20,
             'Jasny\\Twig\\' => 11,
+        ),
+        'I' => 
+        array (
+            'Intervention\\Image\\' => 19,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
         ),
         'D' => 
         array (
@@ -254,6 +269,10 @@ class ComposerStaticInit73efae232c7612431965f33d3c603310
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Proffer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/davidyell/proffer/src',
+        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
@@ -286,6 +305,18 @@ class ComposerStaticInit73efae232c7612431965f33d3c603310
         array (
             0 => __DIR__ . '/..' . '/m1/env/src',
         ),
+        'League\\MimeTypeDetection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
+        ),
+        'League\\Flysystem\\Local\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem-local',
+        ),
+        'League\\Flysystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem/src',
+        ),
         'League\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/container/src',
@@ -302,9 +333,25 @@ class ComposerStaticInit73efae232c7612431965f33d3c603310
         array (
             0 => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema',
         ),
+        'Josegonzalez\\Upload\\Test\\Fixture\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/josegonzalez/cakephp-upload/tests/Fixture',
+        ),
+        'Josegonzalez\\Upload\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/josegonzalez/cakephp-upload/src',
+        ),
         'Jasny\\Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/jasny/twig-extensions/src',
+        ),
+        'Intervention\\Image\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

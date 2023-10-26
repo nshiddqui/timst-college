@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace App\DataTables;
@@ -25,19 +24,18 @@ class StudentsDataTables extends DataTables
     public function config(ConfigBundle $configBundle): void
     {
         $configBundle->Columns->deleteAllColumns();
-
-        $configBundle->getDataTables()->getOrmTable()->getAssociation('Universities')->associations()->removeAll();
+        $configBundle->getDataTables()->getOrmTable()->getAssociation('CommunicationDetails')->associations()->removeAll();
 
 
         $configBundle->Query->select('Students.id');
-        $configBundle->Columns->addDatabaseColumn('Students.enrolment_no');
-        $configBundle->Columns->addDatabaseColumn('Students.applicant_name');
+        $configBundle->Query->select('ProgrammeDetails.cource_id');
+        $configBundle->Columns->addDatabaseColumn('Students.candidate_name');
         $configBundle->Columns->addDatabaseColumn('Students.father_name');
-        $configBundle->Columns->addDatabaseColumn('Students.address');
-        $configBundle->Columns->addDatabaseColumn('Students.contact');
-        $configBundle->Columns->addDatabaseColumn('Universities.name')->setTitle('University Name');
+        $configBundle->Columns->addDatabaseColumn('Students.mother_name');
+        $configBundle->Columns->addDatabaseColumn('Students.date_of_birth');
+        $configBundle->Columns->addDatabaseColumn('CommunicationDetails.contact_number');
         $configBundle->Columns->addDatabaseColumn('Cources.name')->setTitle('Cource Name');
-        $configBundle->Columns->addDatabaseColumn('Students.addmission_date');
+        $configBundle->Columns->addDatabaseColumn('CommunicationDetails.email_address');
         $configBundle->Columns->addDatabaseColumn('Students.created');
         $configBundle->Columns->addNonDatabaseColumn('action')->setWidth('120px');
 

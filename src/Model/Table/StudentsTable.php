@@ -11,12 +11,13 @@ use Cake\Validation\Validator;
 /**
  * Students Model
  *
- * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
- * @property \App\Model\Table\StatesTable&\Cake\ORM\Association\BelongsTo $States
- * @property \App\Model\Table\GendersTable&\Cake\ORM\Association\BelongsTo $Genders
  * @property \App\Model\Table\UniversitiesTable&\Cake\ORM\Association\BelongsTo $Universities
- * @property \App\Model\Table\CourcesTable&\Cake\ORM\Association\BelongsTo $Cources
+ * @property \App\Model\Table\GendersTable&\Cake\ORM\Association\BelongsTo $Genders
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
+ * @property \App\Model\Table\IdProofTypesTable&\Cake\ORM\Association\BelongsTo $IdProofTypes
+ * @property \App\Model\Table\CommunicationDetailsTable&\Cake\ORM\Association\HasMany $CommunicationDetails
+ * @property \App\Model\Table\ProgrammeDetailsTable&\Cake\ORM\Association\HasMany $ProgrammeDetails
+ * @property \App\Model\Table\QualificationDetailsTable&\Cake\ORM\Association\HasMany $QualificationDetails
  *
  * @method \App\Model\Entity\Student newEmptyEntity()
  * @method \App\Model\Entity\Student newEntity(array $data, array $options = [])
@@ -46,18 +47,32 @@ class StudentsTable extends Table
     {
         parent::initialize($config);
 
+
         $this->setTable('students');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('CommunicationDetails', [
+            'foreignKey' => 'id',
+            'bindingKey' => 'student_id',
+            'joinType' => 'INNER',
+        ]);
+
+        $this->belongsTo('ProgrammeDetails', [
+            'foreignKey' => 'id',
+            'bindingKey' => 'student_id',
+            'joinType' => 'INNER',
+        ]);
+
         $this->belongsTo('Universities', [
             'foreignKey' => 'university_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Cources', [
-            'foreignKey' => 'cource_id',
+
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
         $this->belongsTo('Genders', [
@@ -68,13 +83,26 @@ class StudentsTable extends Table
             'foreignKey' => 'category_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('States', [
-            'foreignKey' => 'state_id',
+        $this->belongsTo('IdProofTypes', [
+            'foreignKey' => 'id_proof_type_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
-            'joinType' => 'INNER',
+
+        $this->hasMany('QualificationDetails', [
+            'foreignKey' => 'student_id',
+        ]);
+
+
+        $this->addBehavior('Josegonzalez/Upload.Upload', [
+            'photo' => [
+                'restoreValueOnFailure' => true
+            ],
+            'document_front' => [
+                'restoreValueOnFailure' => true
+            ],
+            'document_back' => [
+                'restoreValueOnFailure' => true
+            ]
         ]);
     }
 
@@ -91,22 +119,14 @@ class StudentsTable extends Table
             ->notEmptyString('user_id');
 
         $validator
-            ->scalar('image')
-            ->maxLength('image', 255)
-            ->requirePresence('image', 'create')
-            ->notEmptyFile('image');
+            ->integer('university_id')
+            ->notEmptyString('university_id');
 
         $validator
-            ->scalar('enrolment_no')
-            ->maxLength('enrolment_no', 255)
-            ->requirePresence('enrolment_no', 'create')
-            ->notEmptyString('enrolment_no');
-
-        $validator
-            ->scalar('applicant_name')
-            ->maxLength('applicant_name', 255)
-            ->requirePresence('applicant_name', 'create')
-            ->notEmptyString('applicant_name');
+            ->scalar('candidate_name')
+            ->maxLength('candidate_name', 255)
+            ->requirePresence('candidate_name', 'create')
+            ->notEmptyString('candidate_name');
 
         $validator
             ->scalar('father_name')
@@ -115,20 +135,10 @@ class StudentsTable extends Table
             ->notEmptyString('father_name');
 
         $validator
-            ->scalar('address')
-            ->maxLength('address', 255)
-            ->requirePresence('address', 'create')
-            ->notEmptyString('address');
-
-        $validator
-            ->integer('state_id')
-            ->notEmptyString('state_id');
-
-        $validator
-            ->scalar('contact')
-            ->maxLength('contact', 255)
-            ->requirePresence('contact', 'create')
-            ->notEmptyString('contact');
+            ->scalar('mother_name')
+            ->maxLength('mother_name', 255)
+            ->requirePresence('mother_name', 'create')
+            ->notEmptyString('mother_name');
 
         $validator
             ->date('date_of_birth')
@@ -136,35 +146,41 @@ class StudentsTable extends Table
             ->notEmptyDate('date_of_birth');
 
         $validator
+            ->requirePresence('photo', 'create')
+            ->notEmptyString('photo')
+            ->setProvider('photo', \Josegonzalez\Upload\Validation\ImageValidation::class);
+
+        $validator
             ->integer('gender_id')
             ->notEmptyString('gender_id');
-
-        $validator
-            ->integer('university_id')
-            ->notEmptyString('university_id');
-
-        $validator
-            ->integer('cource_id')
-            ->notEmptyString('cource_id');
-
-        $validator
-            ->integer('cource_fees')
-            ->requirePresence('cource_fees', 'create')
-            ->notEmptyString('cource_fees');
-
-        $validator
-            ->date('addmission_date')
-            ->requirePresence('addmission_date', 'create')
-            ->notEmptyDate('addmission_date');
 
         $validator
             ->integer('category_id')
             ->notEmptyString('category_id');
 
         $validator
-            ->scalar('reference')
-            ->maxLength('reference', 255)
-            ->allowEmptyString('reference');
+            ->integer('id_proof_type_id')
+            ->notEmptyString('id_proof_type_id');
+
+        $validator
+            ->boolean('are_you_employed')
+            ->notEmptyString('are_you_employed');
+
+        $validator
+            ->scalar('id_proof_no')
+            ->maxLength('id_proof_no', 255)
+            ->requirePresence('id_proof_no', 'create')
+            ->notEmptyString('id_proof_no');
+
+        $validator
+            ->requirePresence('document_front', 'create')
+            ->notEmptyString('document_front')
+            ->setProvider('photo', \Josegonzalez\Upload\Validation\ImageValidation::class);
+
+        $validator
+            ->requirePresence('document_back', 'create')
+            ->notEmptyString('document_back')
+            ->setProvider('photo', \Josegonzalez\Upload\Validation\ImageValidation::class);
 
         return $validator;
     }
@@ -179,11 +195,10 @@ class StudentsTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('user_id', 'Users'), ['errorField' => 'user_id']);
-        $rules->add($rules->existsIn('state_id', 'States'), ['errorField' => 'state_id']);
-        $rules->add($rules->existsIn('gender_id', 'Genders'), ['errorField' => 'gender_id']);
         $rules->add($rules->existsIn('university_id', 'Universities'), ['errorField' => 'university_id']);
-        $rules->add($rules->existsIn('cource_id', 'Cources'), ['errorField' => 'cource_id']);
+        $rules->add($rules->existsIn('gender_id', 'Genders'), ['errorField' => 'gender_id']);
         $rules->add($rules->existsIn('category_id', 'Categories'), ['errorField' => 'category_id']);
+        $rules->add($rules->existsIn('id_proof_type_id', 'IdProofTypes'), ['errorField' => 'id_proof_type_id']);
 
         return $rules;
     }

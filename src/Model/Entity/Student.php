@@ -10,30 +10,29 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $user_id
- * @property string $image
- * @property string $enrolment_no
- * @property string $applicant_name
- * @property string $father_name
- * @property string $address
- * @property int $state_id
- * @property string $contact
- * @property \Cake\I18n\FrozenDate $date_of_birth
- * @property int $gender_id
  * @property int $university_id
- * @property int $cource_id
- * @property int $cource_fees
- * @property \Cake\I18n\FrozenDate $addmission_date
+ * @property string $candidate_name
+ * @property string $father_name
+ * @property string $mother_name
+ * @property \Cake\I18n\FrozenDate $date_of_birth
+ * @property string $photo
+ * @property int $gender_id
  * @property int $category_id
- * @property string|null $reference
+ * @property int $id_proof_type_id
+ * @property string $id_proof_no
+ * @property string $document_front
+ * @property string $document_back
+ * @property bool $are_you_employed
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\User $user
- * @property \App\Model\Entity\State $state
- * @property \App\Model\Entity\Gender $gender
  * @property \App\Model\Entity\University $university
- * @property \App\Model\Entity\Cource $cource
+ * @property \App\Model\Entity\Gender $gender
  * @property \App\Model\Entity\Category $category
+ * @property \App\Model\Entity\IdProofType $id_proof_type
+ * @property \App\Model\Entity\CommunicationDetail[] $communication_details
+ * @property \App\Model\Entity\ProgrammeDetail[] $programme_details
+ * @property \App\Model\Entity\QualificationDetail[] $qualification_details
  */
 class Student extends Entity
 {
@@ -48,28 +47,28 @@ class Student extends Entity
      */
     protected $_accessible = [
         'user_id' => true,
-        'image' => true,
-        'enrolment_no' => true,
-        'applicant_name' => true,
-        'father_name' => true,
-        'address' => true,
-        'state_id' => true,
-        'contact' => true,
-        'date_of_birth' => true,
-        'gender_id' => true,
         'university_id' => true,
-        'cource_id' => true,
-        'cource_fees' => true,
-        'addmission_date' => true,
+        'candidate_name' => true,
+        'father_name' => true,
+        'mother_name' => true,
+        'date_of_birth' => true,
+        'photo' => true,
+        'gender_id' => true,
         'category_id' => true,
-        'reference' => true,
+        'id_proof_type_id' => true,
+        'id_proof_no' => true,
+        'document_front' => true,
+        'document_back' => true,
+        'are_you_employed' => true,
         'created' => true,
         'modified' => true,
-        'user' => true,
-        'state' => true,
-        'gender' => true,
         'university' => true,
-        'cource' => true,
+        'gender' => true,
         'category' => true,
+        'id_proof_type' => true,
+        'user' => true,
+        'communication_detail' => true,
+        'programme_detail' => true,
+        'qualification_detail' => true,
     ];
 }
