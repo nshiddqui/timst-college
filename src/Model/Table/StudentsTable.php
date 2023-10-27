@@ -69,14 +69,12 @@ class StudentsTable extends Table
         ]);
 
         $this->hasOne('CommunicationDetails', [
-            'foreignKey' => 'id',
-            'bindingKey' => 'student_id',
+            'foreignKey' => 'student_id',
             'joinType' => 'INNER',
         ]);
 
         $this->hasOne('ProgrammeDetails', [
-            'foreignKey' => 'id',
-            'bindingKey' => 'student_id',
+            'foreignKey' => 'student_id',
             'joinType' => 'INNER',
         ]);
 
