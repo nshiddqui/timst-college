@@ -115,7 +115,7 @@
                                 <a href="/cources"><i class="fa fa-book"></i>Cources</a>
                             </li>
                             <li class="has-submenu">
-                                <a href="/universities"><i class="dripicons-to-do"></i>Universities</a>
+                                <a href="/universities"><i class="dripicons-to-do"></i>Centers</a>
                             </li>
                         <?php } ?>
 
