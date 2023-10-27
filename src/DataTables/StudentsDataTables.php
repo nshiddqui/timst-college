@@ -24,18 +24,18 @@ class StudentsDataTables extends DataTables
     public function config(ConfigBundle $configBundle): void
     {
         $configBundle->Columns->deleteAllColumns();
-        $configBundle->getDataTables()->getOrmTable()->getAssociation('CommunicationDetails')->associations()->removeAll();
+        $configBundle->getDataTables()->getOrmTable()->getAssociation('CommunicationDetail')->associations()->removeAll();
 
 
         $configBundle->Query->select('Students.id');
-        $configBundle->Query->select('ProgrammeDetails.cource_id');
+        $configBundle->Query->select('ProgrammeDetail.cource_id');
         $configBundle->Columns->addDatabaseColumn('Students.candidate_name');
         $configBundle->Columns->addDatabaseColumn('Students.father_name');
         $configBundle->Columns->addDatabaseColumn('Students.mother_name');
         $configBundle->Columns->addDatabaseColumn('Students.date_of_birth');
-        $configBundle->Columns->addDatabaseColumn('CommunicationDetails.contact_number');
+        $configBundle->Columns->addDatabaseColumn('CommunicationDetail.contact_number');
         $configBundle->Columns->addDatabaseColumn('Cources.name')->setTitle('Cource Name');
-        $configBundle->Columns->addDatabaseColumn('CommunicationDetails.email_address');
+        $configBundle->Columns->addDatabaseColumn('CommunicationDetail.email_address');
         $configBundle->Columns->addDatabaseColumn('Students.created');
         $configBundle->Columns->addNonDatabaseColumn('action')->setWidth('120px');
 

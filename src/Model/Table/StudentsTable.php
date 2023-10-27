@@ -54,13 +54,27 @@ class StudentsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('CommunicationDetails', [
+        $this->belongsTo('CommunicationDetail', [
+            'className' => 'CommunicationDetails',
             'foreignKey' => 'id',
             'bindingKey' => 'student_id',
             'joinType' => 'INNER',
         ]);
 
-        $this->belongsTo('ProgrammeDetails', [
+        $this->belongsTo('ProgrammeDetail', [
+            'className' => 'ProgrammeDetails',
+            'foreignKey' => 'id',
+            'bindingKey' => 'student_id',
+            'joinType' => 'INNER',
+        ]);
+
+        $this->hasOne('CommunicationDetails', [
+            'foreignKey' => 'id',
+            'bindingKey' => 'student_id',
+            'joinType' => 'INNER',
+        ]);
+
+        $this->hasOne('ProgrammeDetails', [
             'foreignKey' => 'id',
             'bindingKey' => 'student_id',
             'joinType' => 'INNER',
