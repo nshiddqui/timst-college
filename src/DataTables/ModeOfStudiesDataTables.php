@@ -22,6 +22,7 @@ class ModeOfStudiesDataTables extends DataTables {
 	 */
     public function config(ConfigBundle $configBundle): void {
         // TODO: Configure your table here.
+        $configBundle->Columns->restoreColmns();
         $configBundle->Columns->addNonDatabaseColumn('action')->setWidth('120px');
         $configBundle->Options->setColumns($configBundle->Columns);
     }

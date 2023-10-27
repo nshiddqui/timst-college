@@ -267,6 +267,17 @@ final class Columns {
 		unset($this->_columns[$columnIndex]);
 	}
 
+	public function restoreColmns(): void {
+		$table = $this->getConfigBundle()->getDataTables()->getOrmTable();
+		$columns = [];
+		foreach ($table->getSchema()->columns() as $column) {
+			$columnInfo = $this->normalizeDataTableField("{$table->getAlias()}.$column");
+			$newColumn = new Column("{$columnInfo['table']}.{$columnInfo['column']}", true, $columnInfo['columnSchema'], $columnInfo['associationPath']);
+			$columns[$newColumn->getName()] = $newColumn;
+		}
+		$this->_columns = $columns;
+	}
+
 	/**
 	 * Delete all configured columns
 	 *
