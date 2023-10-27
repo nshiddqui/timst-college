@@ -22,6 +22,8 @@ class FacultiesDataTables extends DataTables {
 	 */
     public function config(ConfigBundle $configBundle): void {
         // TODO: Configure your table here.
+        $configBundle->Columns->addNonDatabaseColumn('action')->setWidth('120px');
+        $configBundle->Options->setColumns($configBundle->Columns);
     }
 
     /**
@@ -31,5 +33,8 @@ class FacultiesDataTables extends DataTables {
 	 */
     public function rowRenderer(DataTablesView $appView, EntityInterface $entity, Renderer $renderer): void {
         // TODO: Configure each row render here.
+        $action = $appView->Html->link('<i class="fa fa-pencil-alt"></i>', ['controller' => 'Faculties', 'action' => 'edit', $entity->id, 'plugin' => false], ['class' => 'btn btn-primary', 'escape' => false]);
+        $renderer->add('action', $action);
+        $renderer->renderRow($entity);
     }
 }
